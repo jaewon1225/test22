@@ -4,8 +4,6 @@
 	<meta charset="utf-8"/>
 </head>
 <body>
-/*
-	<div id="map" style="width:500px;height:400px;"></div>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8c03ca589ff35989a8974da028de5137"></script>
 	<script>
 		var container = document.getElementById('map');
@@ -14,16 +12,8 @@
 			level: 3
 		};
 
-		var map = new kakao.maps.Map(container, options);
+		var map = new kakao.maps.Map(container, options); // 지도를 생성합니다
 	</script>
-*/
-	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-    mapOption = { 
-        center: new kakao.maps.LatLng(37.54699, 127.09598), // 지도의 중심좌표
-        level: 4 // 지도의 확대 레벨
-    };
-
-var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
 var imageSrc = 'https://testmarcket.azurewebsites.net/localimg/localimages/07/mapapidoc/marker_red.png', // 마커이미지의 주소입니다    
     imageSize = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
