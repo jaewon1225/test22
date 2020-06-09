@@ -13,7 +13,6 @@
 		};
 
 		var map = new kakao.maps.Map(container, options); // 지도를 생성합니다
-	</script>
 
 var imageSrc = 'https://testmarcket.azurewebsites.net/localimg/localimages/07/mapapidoc/marker_red.png', // 마커이미지의 주소입니다    
     imageSize = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
@@ -31,5 +30,8 @@ var marker = new kakao.maps.Marker({
 
 // 마커가 지도 위에 표시되도록 설정합니다
 marker.setMap(map);  
+	</script>
+
+
 </body>
 </html>
