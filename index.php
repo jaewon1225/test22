@@ -8,7 +8,7 @@
 <body>
 <div id="map" style="width:100%;height:350px;"></div>
 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=발급받은 APP KEY를 사용하세요"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8c03ca589ff35989a8974da028de5137"></script>
 <script>
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
     mapOption = { 
