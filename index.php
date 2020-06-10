@@ -21,19 +21,19 @@ var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니
 // 마커를 표시할 위치와 title 객체 배열입니다 
 var positions = [
     {
-        title: '<div>국제교육관</div>', 
+        title: '국제교육관', 
         latlng: new kakao.maps.LatLng(35.16896593873725, 128.99588676793584)
     },
     {
-        title: '<div>미술관</div>', 
+        title: '미술관', 
         latlng: new kakao.maps.LatLng(35.1680725703830, 128.9948662455132)
     },
     {
-        title: '<div>상경관</div>', 
+        title: '상경관', 
         latlng: new kakao.maps.LatLng(35.168122424038856, 128.99840127171746)
     },
     {
-        title: '<div>도서관</div>',
+        title: '도서관',
         latlng: new kakao.maps.LatLng(35.1675323150673, 128.9970259937742)
     }
 ];
