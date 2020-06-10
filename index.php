@@ -12,7 +12,7 @@
 <script>
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
     mapOption = { 
-        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+        center: new kakao.maps.LatLng(35.16825697799745, 128.99625354800833), // 지도의 중심좌표
         level: 3 // 지도의 확대 레벨
     };
 
@@ -21,20 +21,20 @@ var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니
 // 마커를 표시할 위치와 title 객체 배열입니다 
 var positions = [
     {
-        title: '카카오', 
-        latlng: new kakao.maps.LatLng(33.450705, 126.570677)
+        title: '<div>국제교육관</div>', 
+        latlng: new kakao.maps.LatLng(35.16896593873725, 128.99588676793584)
     },
     {
-        title: '생태연못', 
-        latlng: new kakao.maps.LatLng(33.450936, 126.569477)
+        title: '<div>미술관</div>', 
+        latlng: new kakao.maps.LatLng(35.1680725703830, 128.9948662455132)
     },
     {
-        title: '텃밭', 
-        latlng: new kakao.maps.LatLng(33.450879, 126.569940)
+        title: '<div>상경관</div>', 
+        latlng: new kakao.maps.LatLng(35.168122424038856, 128.99840127171746)
     },
     {
-        title: '근린공원',
-        latlng: new kakao.maps.LatLng(33.451393, 126.570738)
+        title: '<div>도서관</div>',
+        latlng: new kakao.maps.LatLng(35.1675323150673, 128.9970259937742)
     }
 ];
 
