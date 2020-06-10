@@ -24,7 +24,7 @@ var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_
       
 // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
 var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
-    markerPosition = new kakao.maps.LatLng(37.54699, 127.09598); // 마커가 표시될 위치입니다 (db 저장된 위도, 경도)
+    markerPosition = new kakao.maps.LatLng(35.16825697799745, 128.99625354800833); // 마커가 표시될 위치입니다 (db 저장된 위도, 경도)
 //사직야구장 위도는 35.19428084698902 이고, 경도는 129.06142991773288 입니다
 
 // 마커를 생성합니다
