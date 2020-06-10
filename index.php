@@ -14,9 +14,11 @@
 <script>
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
-        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+        center: new kakao.maps.LatLng(35.16753528131439, 128.9971193493982), // 지도의 중심좌표
         level: 3 // 지도의 확대 레벨
     };
+
+//신라대 35.16753528131439 이고, 경도는 128.9971193493982 입니다
 
 var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
