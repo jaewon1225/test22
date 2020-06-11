@@ -1,38 +1,43 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <title>다른 이미지로 마커 생성하기</title>
-</head>
-<body>
-<div id="map" style="width:100%;height:350px;"></div>
+  <head>
+    <style>
+      /* Set the size of the div element that contains the map */
+      #map {
+        height: 400px;  /* The height is 400 pixels */
+        width: 100%;  /* The width is the width of the web page */
+       }
+    </style>
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <script>
+// Initialize and add the map
+function initMap() {
+  // The location of Uluru
+  var uluru = {lat: 35.16825697799745, lng: 128.99625354800833};
+  //35.16825697799745, 128.99625354800833
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 4, center: uluru});
+  // The marker, positioned at Uluru
 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8c03ca589ff35989a8974da028de5137"></script>
-<script>
-var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-    mapOption = { 
-        center: new kakao.maps.LatLng(37.54699, 127.09598), // 지도의 중심좌표
-        level: 4 // 지도의 확대 레벨
-    };
+  var marker = new google.maps.Marker({
+    position: uluru,
+    map: map,
+    icon: {
+        url: '신재원.jpg',
+        size: { width: 400, height: 400 }
+    }
+  });
 
-var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-
-var imageSrc = '신재원.jpg', // 마커이미지의 주소입니다    
-    imageSize = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
-    imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
-      
-// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
-var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
-    markerPosition = new kakao.maps.LatLng(37.54699, 127.09598); // 마커가 표시될 위치입니다
-
-// 마커를 생성합니다
-var marker = new kakao.maps.Marker({
-    position: markerPosition, 
-    image: markerImage // 마커이미지 설정 
-});
-
-// 마커가 지도 위에 표시되도록 설정합니다
-marker.setMap(map);  
-</script>
-</body>
+  //var marker = new google.maps.Marker({position: uluru, map: map});
+}
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWhEEOK1BOOXj6y6bwR8D-nVH1hixvNtg&callback=initMap">
+    </script>
+  </body>
 </html>
