@@ -27,7 +27,10 @@ function initMap() {
   var marker = new google.maps.Marker({
     position: uluru,
     map: map,
-    icon: '신재원.jpg'
+    icon: {
+        url: '신재원.jpg',
+        size: { width: 20, height: 20 }
+    }
   });
 
   //var marker = new google.maps.Marker({position: uluru, map: map});
