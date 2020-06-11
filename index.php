@@ -23,7 +23,14 @@ function initMap() {
   var map = new google.maps.Map(
       document.getElementById('map'), {zoom: 4, center: uluru});
   // The marker, positioned at Uluru
-  var marker = new google.maps.Marker({position: uluru, map: map});
+
+  var marker = new google.maps.Marker({
+    position: uluru,
+    map: map,
+    icon: '주토피아.png'
+  });
+
+  //var marker = new google.maps.Marker({position: uluru, map: map});
 }
     </script>
     <script async defer
