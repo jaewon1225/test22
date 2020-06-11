@@ -29,7 +29,7 @@ function initMap() {
     map: map,
     icon: {
         url: '신재원.jpg',
-        size: { width: 20, height: 20 }
+        size: { width: 200, height: 200 }
     }
   });
 
