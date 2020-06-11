@@ -1,33 +1,54 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <style>
-      /* Set the size of the div element that contains the map */
-      #map {
-        height: 400px;  /* The height is 400 pixels */
-        width: 100%;  /* The width is the width of the web page */
-       }
+        /*div의 크기를 설정하기 위해서는 지도의 높이를 정의해야 합니다.*/
+        #map {
+            height: 100%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
     </style>
-  </head>
-  <body>
-    <h3>My Google Maps Demo</h3>
-    <!--The div element for the map -->
-    <div id="map"></div>
-    <script>
-// Initialize and add the map
-function initMap() {
-  // The location of Uluru
-  var uluru = {lat: 35.16825697799745, lng: 128.99625354800833};
-  //35.16825697799745, 128.99625354800833
-  // The map, centered at Uluru
-  var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 4, center: uluru});
-  // The marker, positioned at Uluru
-  var marker = new google.maps.Marker({position: uluru, map: map});
-}
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWhEEOK1BOOXj6y6bwR8D-nVH1hixvNtg&callback=initMap">
-    </script>
-  </body>
+</head>
+<body>
+<div id="map"></div>
+<script>
+    var map; //map을 담을 변수 선언
+    function initMap() {
+                                   //div id가 map인 영역에 지도를 초기화
+        map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 2, //지도의 zoom은 2로 설정.
+            center: new google.maps.LatLng(35.16825697799745, 128.99625354800833), //지도가 초기화 될 때 중심 위치
+            mapTypeId: 'terrain' //지도의 타입 : 육지, 위성 등이 있음
+        });
+ 
+        // 여러개의 위치 데이터를 가져오는 json 파일.
+        var script = document.createElement('script');
+        // This example uses a local copy of the GeoJSON stored at
+        // http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp
+        script.src = 'https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js';
+        document.getElementsByTagName('head')[0].appendChild(script);
+    }
+ 
+    // 리스트 정보를 for문을 돌려 각각의 위치에 마커를 표시한다.
+    // set of coordinates.
+    window.eqfeed_callback = function(results) {
+        for (var i = 0; i < results.features.length; i++) {
+            var coords = results.features[i].geometry.coordinates;
+            var latLng = new google.maps.LatLng(coords[1],coords[0]); //위도 경도 변수
+            var marker = new google.maps.Marker({
+                position: latLng, //여기에 위도 경도 정보를 입력하고 마커 생성
+                map: map
+            });
+        }
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWhEEOK1BOOXj6y6bwR8D-nVH1hixvNtg&callback=initMap">
+</script>
+</body>
 </html>
