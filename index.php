@@ -16,19 +16,14 @@
     <script>
 // Initialize and add the map
 function initMap() {
-  // The location of silla
-  var silla = {lat: 35.16825697799745, lng: 128.99625354800833};
+  // The location of Uluru
+  var uluru = {lat: 35.16825697799745, lng: 128.99625354800833};
   //35.16825697799745, 128.99625354800833
-  // The map, centered at silla
+  // The map, centered at Uluru
   var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 4, center: silla});
-  // The marker, positioned at silla
-  
-
-  var myIcon = new google.maps.MarkerImage("./dz.png", null, null, null, new google.maps.Size(12,20));
-
-  var marker = new google.maps.Marker({position: silla, map: map, icon: myIcon});
-
+      document.getElementById('map'), {zoom: 4, center: uluru});
+  // The marker, positioned at Uluru
+  var marker = new google.maps.Marker({position: uluru, map: map});
 }
     </script>
     <script async defer
@@ -36,5 +31,3 @@ function initMap() {
     </script>
   </body>
 </html>
-
-
