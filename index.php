@@ -27,7 +27,7 @@ function initMap() {
   var marker = new google.maps.Marker({
     position: uluru,
     map: map,
-    icon: '주토피아.png'
+    icon: '신재원.jpg'
   });
 
   //var marker = new google.maps.Marker({position: uluru, map: map});
