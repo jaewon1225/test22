@@ -103,8 +103,8 @@ $theVariable5 = [];
 if ($getResults5 == FALSE)
     echo (sqlsrv_errors());
 
-while ($row4 = sqlsrv_fetch_array($getResults5, SQLSRV_FETCH_ASSOC)) {
-    $theVariable4[] = $row4['title'];
+while ($row5 = sqlsrv_fetch_array($getResults5, SQLSRV_FETCH_ASSOC)) {
+    $theVariable5[] = $row5['price'];
 }
 
 sqlsrv_free_stmt($getResults5);
