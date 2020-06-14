@@ -23,7 +23,7 @@ if($id==NULL || $pw==NULL || $name==NULL)
 
 // PHP Data Objects(PDO) Sample Code:
 try {
-    $conn = new PDO("sqlsrv:server = tcp:sillasv.database.windows.net,1433; Database = silla_db", "jaewon", "wodnjs1225!");
+    $conn = new PDO("sqlsrv:server = tcp:sv11.database.windows.net,1433; Database = db11", "jaewon", "wodnjs1225!");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
 catch (PDOException $e) {
@@ -32,9 +32,10 @@ catch (PDOException $e) {
 }
 
 // SQL Server Extension Sample Code:
-$connectionInfo = array("UID" => "jaewon", "pwd" => "wodnjs1225!", "Database" => "silla_db", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
-$serverName = "tcp:sillasv.database.windows.net,1433";
+$connectionInfo = array("UID" => "jaewon", "pwd" => "wodnjs1225!", "Database" => "db11", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+$serverName = "tcp:sv11.database.windows.net,1433";
 $conn = sqlsrv_connect($serverName, $connectionInfo);
+
 
 $tsql= "SELECT *
         FROM member
@@ -54,8 +55,8 @@ $tsql= "SELECT *
     }
     sqlsrv_free_stmt($getResults);
 
-    $connectionInfo = array("UID" => "jaewon", "pwd" => "wodnjs1225!", "Database" => "silla_db", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
-    $serverName = "tcp:sillasv.database.windows.net,1433";
+    $connectionInfo = array("UID" => "jaewon", "pwd" => "wodnjs1225!", "Database" => "db11", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+    $serverName = "tcp:sv11.database.windows.net,1433";
     $conn = sqlsrv_connect($serverName, $connectionInfo);
 $tsql2= "INSERT INTO member VALUES('$id','$pw', '$name')";
 
