@@ -68,6 +68,25 @@ while ($row3 = sqlsrv_fetch_array($getResults3, SQLSRV_FETCH_ASSOC)) {
 }
 
 sqlsrv_free_stmt($getResults3);
+
+//title 
+$connectionInfo = array("UID" => "jaewon", "pwd" => "wodnjs1225!", "Database" => "db11", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+$serverName = "tcp:sv11.database.windows.net,1433";
+$conn = sqlsrv_connect($serverName, $connectionInfo);
+$tsql4= "SELECT title FROM product";
+$getResults4= sqlsrv_query($conn, $tsq4);
+
+$theVariable4 = [];
+
+//echo ("Reading data from table" . PHP_EOL);
+if ($getResults4 == FALSE)
+    echo (sqlsrv_errors());
+
+while ($row4 = sqlsrv_fetch_array($getResults4, SQLSRV_FETCH_ASSOC)) {
+    $theVariable4[] = $row4['Lat'];
+}
+
+sqlsrv_free_stmt($getResults4);
 ?>
 
 <html>
@@ -92,6 +111,7 @@ var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니
 var positions1 = new Array("<?=implode("\",\"" , $theVariable2);?>");
 var positions2 = new Array("<?=implode("\",\"" , $theVariable3);?>");
 var imageSrc = new Array("<?=implode("\",\"" , $theVariable);?>");
+var title = new Array("<?=implode("\",\"" , $theVariable4);?>");
 
 
 for (var i = 0; i < positions1.length; i ++) {   
@@ -109,7 +129,7 @@ for (var i = 0; i < positions1.length; i ++) {
     });
 
     // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
-    var iwContent = '<div style="padding:5px;">Hello World!</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+    var iwContent = '<div style="padding:5px;">'+ title + '</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
         iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
 
     // 인포윈도우를 생성합니다
