@@ -75,7 +75,7 @@ $serverName = "tcp:sv11.database.windows.net,1433";
 $conn = sqlsrv_connect($serverName, $connectionInfo);
 
 $tsql4= "SELECT title FROM product";
-$getResults4= sqlsrv_query($conn, $tsq4);
+$getResults4= sqlsrv_query($conn, $tsql4);
 
 $theVariable4 = [];
 
@@ -86,9 +86,8 @@ if ($getResults4 == FALSE)
 while ($row4 = sqlsrv_fetch_array($getResults4, SQLSRV_FETCH_ASSOC)) {
     $theVariable4[] = $row4['title'];
 }
-echo ($theVariable4[0]);
-sqlsrv_free_stmt($getResults4);
 
+sqlsrv_free_stmt($getResults4);
 
 ?>
 
