@@ -142,7 +142,7 @@ for (var i = 0; i < positions1.length; i ++) {
         return function(){
             infowindow.open(map, marker);
         }
-
+    }
 
 </script>
 </form>
