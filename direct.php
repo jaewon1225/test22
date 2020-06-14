@@ -88,6 +88,8 @@ while ($row4 = sqlsrv_fetch_array($getResults4, SQLSRV_FETCH_ASSOC)) {
 }
 
 sqlsrv_free_stmt($getResults4);
+
+echo $theVariable4[0]; 
 ?>
 
 <html>
@@ -131,7 +133,7 @@ for (var i = 0; i < positions1.length; i ++) {
 
     // 인포윈도우를 생성합니다
     var infowindow = new kakao.maps.InfoWindow({
-        content: '<div> 제목 : '+echo $theVariable[0]+'</div>',
+        content: '<div> 제목 : '+title[i]+'</div>',
         removable : true
     });
 
