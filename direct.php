@@ -14,6 +14,7 @@ $connectionInfo = array("UID" => "jaewon", "pwd" => "wodnjs1225!", "Database" =>
 $serverName = "tcp:sv11.database.windows.net,1433";
 $conn = sqlsrv_connect($serverName, $connectionInfo);
 
+//filename 배열
 $tsql= "SELECT filename FROM image";
 $getResults= sqlsrv_query($conn, $tsql);
 
@@ -22,13 +23,14 @@ if ($getResults == FALSE)
     echo (sqlsrv_errors());
 
 $theVariable = [];  
-    
+
 while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {    
     $theVariable[] = $row['filename']; 
 }
 
 sqlsrv_free_stmt($getResults);
 
+//lat 배열
 $connectionInfo = array("UID" => "jaewon", "pwd" => "wodnjs1225!", "Database" => "db11", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
 $serverName = "tcp:sv11.database.windows.net,1433";
 $conn = sqlsrv_connect($serverName, $connectionInfo);
@@ -47,6 +49,7 @@ while ($row2 = sqlsrv_fetch_array($getResults2, SQLSRV_FETCH_ASSOC)) {
 
 sqlsrv_free_stmt($getResults2);
 
+//lng 배열
 $connectionInfo = array("UID" => "jaewon", "pwd" => "wodnjs1225!", "Database" => "db11", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
 $serverName = "tcp:sv11.database.windows.net,1433";
 $conn = sqlsrv_connect($serverName, $connectionInfo);
@@ -71,7 +74,8 @@ sqlsrv_free_stmt($getResults3);
 <head>
     <title> 직거래 </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8c03ca589ff35989a8974da028de5137"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=	8c03ca589ff35989a8974da028de5137"></script>
+    
 </head>
 <body>
 <form>
@@ -89,6 +93,7 @@ var positions1 = new Array("<?=implode("\",\"" , $theVariable2);?>");
 var positions2 = new Array("<?=implode("\",\"" , $theVariable3);?>");
 var imageSrc = new Array("<?=implode("\",\"" , $theVariable);?>");
 
+
 for (var i = 0; i < positions1.length; i ++) {   
     // 마커 이미지의 이미지 크기 입니다
     var imageSize = new kakao.maps.Size(100, 60); 
@@ -101,7 +106,13 @@ for (var i = 0; i < positions1.length; i ++) {
         map: map, // 마커를 표시할 지도
         position: new kakao.maps.LatLng(positions1[i], positions2[i]),// 마커를 표시할 위치
         image : markerImage // 마커 이미지 
+        clickable: true
     });
+
+    
+
+
+    
 }
 </script>
 </form>
