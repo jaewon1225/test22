@@ -86,7 +86,7 @@ if ($getResults4 == FALSE)
 while ($row4 = sqlsrv_fetch_array($getResults4, SQLSRV_FETCH_ASSOC)) {
     $theVariable4[] = $row4['title'];
 }
-echo $theVariable4[0];
+echo ($theVariable4[0]);
 sqlsrv_free_stmt($getResults4);
 
 
