@@ -10,11 +10,11 @@ catch (PDOException $e) {
 }
 
 // SQL Server Extension Sample Code:
+//filename 배열
 $connectionInfo = array("UID" => "jaewon", "pwd" => "wodnjs1225!", "Database" => "db11", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
 $serverName = "tcp:sv11.database.windows.net,1433";
 $conn = sqlsrv_connect($serverName, $connectionInfo);
 
-//filename 배열
 $tsql= "SELECT filename FROM image";
 $getResults= sqlsrv_query($conn, $tsql);
 
@@ -30,14 +30,19 @@ while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
 
 sqlsrv_free_stmt($getResults);
 
-//lat 배열
+
+//lat, Lng, title, price 배열
 $connectionInfo = array("UID" => "jaewon", "pwd" => "wodnjs1225!", "Database" => "db11", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
 $serverName = "tcp:sv11.database.windows.net,1433";
 $conn = sqlsrv_connect($serverName, $connectionInfo);
-$tsql2= "SELECT Lat FROM product";
+
+$tsql2= "SELECT Lat, Lng, title, price FROM product";
 $getResults2= sqlsrv_query($conn, $tsql2);
 
 $theVariable2 = [];
+$theVariable3 = [];
+$theVariable4 = [];
+$theVariable5 = [];
 
 //echo ("Reading data from table" . PHP_EOL);
 if ($getResults2 == FALSE)
@@ -45,51 +50,13 @@ if ($getResults2 == FALSE)
 
 while ($row2 = sqlsrv_fetch_array($getResults2, SQLSRV_FETCH_ASSOC)) {
     $theVariable2[] = $row2['Lat'];
+    $theVariable3[] =$row2['Lng'];
+    $theVariable4[] =$row2['title'];
+    $theVariable5[] =$row2['price'];
 }
 
 sqlsrv_free_stmt($getResults2);
 
-//lng 배열
-$connectionInfo = array("UID" => "jaewon", "pwd" => "wodnjs1225!", "Database" => "db11", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
-$serverName = "tcp:sv11.database.windows.net,1433";
-$conn = sqlsrv_connect($serverName, $connectionInfo);
-
-$tsql3= "SELECT Lng FROM product";
-$getResults3= sqlsrv_query($conn, $tsql3);
-
-$theVariable3 = [];
-
-//echo ("Reading data from table" . PHP_EOL);
-if ($getResults3 == FALSE)
-    echo (sqlsrv_errors());
-
-while ($row3 = sqlsrv_fetch_array($getResults3, SQLSRV_FETCH_ASSOC)) {
-    $theVariable3[] =$row3['Lng'];
-}
-
-sqlsrv_free_stmt($getResults3);
-
-//title 
-$connectionInfo = array("UID" => "jaewon", "pwd" => "wodnjs1225!", "Database" => "db11", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
-$serverName = "tcp:sv11.database.windows.net,1433";
-$conn = sqlsrv_connect($serverName, $connectionInfo);
-
-$tsql4= "SELECT title, price FROM product";
-$getResults4= sqlsrv_query($conn, $tsql4);
-
-$theVariable4 = [];
-$theVariable5 = [];
-
-//echo ("Reading data from table" . PHP_EOL);
-if ($getResults4 == FALSE)
-    echo (sqlsrv_errors());
-
-while ($row4 = sqlsrv_fetch_array($getResults4, SQLSRV_FETCH_ASSOC)) {
-    $theVariable4[] =$row4['title'];
-    $theVariable5[] =$row4['price'];
-}
-
-sqlsrv_free_stmt($getResults4);
 
 ?>
 
