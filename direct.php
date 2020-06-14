@@ -83,7 +83,7 @@ if ($getResults4 == FALSE)
     echo (sqlsrv_errors());
 
 while ($row4 = sqlsrv_fetch_array($getResults4, SQLSRV_FETCH_ASSOC)) {
-    $theVariable4[] = $row4['Lat'];
+    $theVariable4[] = $row4['title'];
 }
 
 sqlsrv_free_stmt($getResults4);
@@ -128,14 +128,10 @@ for (var i = 0; i < positions1.length; i ++) {
         image : markerImage // 마커 이미지 
     });
 
-    // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
-     var iwContent = '<div style="padding:5px;">'+ title[i] + '</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-        iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
-
     // 인포윈도우를 생성합니다
     var infowindow = new kakao.maps.InfoWindow({
-        content : iwContent,
-        removable : iwRemoveable
+        content : '<div style="padding:5px;">'+ title[i] + '</div>',
+        removable : true
     });
 
     // 마커에 클릭이벤트를 등록합니다
