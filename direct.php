@@ -94,7 +94,7 @@ $connectionInfo = array("UID" => "jaewon", "pwd" => "wodnjs1225!", "Database" =>
 $serverName = "tcp:sv11.database.windows.net,1433";
 $conn = sqlsrv_connect($serverName, $connectionInfo);
 
-$$tsql5= "SELECT price FROM product";
+$tsql5= "SELECT price FROM product";
 $getResults5= sqlsrv_query($conn, $tsql5);
 
 $theVariable5 = [];
@@ -104,7 +104,7 @@ if ($getResults5 == FALSE)
     echo (sqlsrv_errors());
 
 while ($row5 = sqlsrv_fetch_array($getResults5, SQLSRV_FETCH_ASSOC)) {
-    $theVariable5[] = $row5['price'];
+    $theVariable5[] = $row4['price'];
 }
 
 sqlsrv_free_stmt($getResults5);
