@@ -130,19 +130,20 @@ for (var i = 0; i < positions1.length; i ++) {
 
     // 인포윈도우를 생성합니다
     var infowindow = new kakao.maps.InfoWindow({
-        content : '<div style="padding:5px;">'+ title[i] + '</div>',
+        content: '<div> 제목 : '+title[i]+'</div>',
         removable : true
     });
 
-    // 마커에 클릭이벤트를 등록합니다
-    kakao.maps.event.addListener(marker, 'click', function() {
-        // 마커 위에 인포윈도우를 표시합니다
-        infowindow.open(map, marker);  
-    });
+    kakao.maps.event.addListener(marker, 'click', click(map,marker,infowindow));
 
-   
-    
 }
+    function click(map, marker, infowindow) {
+        // 마커 위에 인포윈도우를 표시합니다
+        return function(){
+            infowindow.open(map, marker);
+        }
+
+
 </script>
 </form>
 <button style="height:100px; width:100px; font-size: 25px;" onclick="location.href='./write.php'"> 글 작성 </button>
