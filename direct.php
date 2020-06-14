@@ -73,6 +73,7 @@ sqlsrv_free_stmt($getResults3);
 $connectionInfo = array("UID" => "jaewon", "pwd" => "wodnjs1225!", "Database" => "db11", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
 $serverName = "tcp:sv11.database.windows.net,1433";
 $conn = sqlsrv_connect($serverName, $connectionInfo);
+
 $tsql4= "SELECT title FROM product";
 $getResults4= sqlsrv_query($conn, $tsq4);
 
@@ -130,7 +131,7 @@ for (var i = 0; i < positions1.length; i ++) {
 
     // 인포윈도우를 생성합니다
     var infowindow = new kakao.maps.InfoWindow({
-        content: '<div> 제목 : '+title[i]+'</div>',
+        content: '<div> 제목 : '+echo $theVariable[0]+'</div>',
         removable : true
     });
 
