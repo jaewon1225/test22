@@ -89,6 +89,26 @@ while ($row4 = sqlsrv_fetch_array($getResults4, SQLSRV_FETCH_ASSOC)) {
 
 sqlsrv_free_stmt($getResults4);
 
+//price
+$connectionInfo = array("UID" => "jaewon", "pwd" => "wodnjs1225!", "Database" => "db11", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+$serverName = "tcp:sv11.database.windows.net,1433";
+$conn = sqlsrv_connect($serverName, $connectionInfo);
+
+$$tsql5= "SELECT price FROM product";
+$getResults5= sqlsrv_query($conn, $tsql5);
+
+$theVariable5 = [];
+
+//echo ("Reading data from table" . PHP_EOL);
+if ($getResults5 == FALSE)
+    echo (sqlsrv_errors());
+
+while ($row4 = sqlsrv_fetch_array($getResults5, SQLSRV_FETCH_ASSOC)) {
+    $theVariable4[] = $row4['title'];
+}
+
+sqlsrv_free_stmt($getResults5);
+
 ?>
 
 <html>
@@ -114,7 +134,7 @@ var positions1 = new Array("<?=implode("\",\"" , $theVariable2);?>");
 var positions2 = new Array("<?=implode("\",\"" , $theVariable3);?>");
 var imageSrc = new Array("<?=implode("\",\"" , $theVariable);?>");
 var title = new Array("<?=implode("\",\"" , $theVariable4);?>");
-
+var price = new Array("<?=implode("\",\"" , $theVariable5);?>");
 
 for (var i = 0; i < positions1.length; i ++) {   
     // 마커 이미지의 이미지 크기 입니다
@@ -132,7 +152,7 @@ for (var i = 0; i < positions1.length; i ++) {
 
     // 인포윈도우를 생성합니다
     var infowindow = new kakao.maps.InfoWindow({
-        content: '<div> 제목 : '+title[i]+'</div>',
+        content: '<div> 제목 : '+title[i]+'</br> 가격 : ' + price[i] +'</div>' ,
         removable : true
     });
 
