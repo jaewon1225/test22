@@ -9,8 +9,6 @@ move_uploaded_file($_FILES['imageform']['tmp_name'], $filename);
 
 $title=$_POST['title'];
 
-$title = iconv("utf8", "euckr", $title);
-
 $price=$_POST['price'];
 $dbLat = $_POST['dbLat'];
 $dbLng = $_POST['dbLng'];
